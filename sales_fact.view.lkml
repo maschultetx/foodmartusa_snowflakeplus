@@ -93,7 +93,8 @@ view: sales_fact {
 
   measure: total_store_sales {
     type: sum
-    sql: ${store_sales} ;;
+    #divide by 1M for better looking output
+    sql: ${store_sales}/1000000 ;;
     drill_fields: [sales_fact.total_store_sales,sales_fact.sales_year,product_class.product_category]
     link: {
       label: "Yearly Product Sales"
